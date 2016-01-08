@@ -216,6 +216,9 @@
             this.Controls.Add(this.labelCellList);
             this.Controls.Add(this.listBoxCells);
             this.MinimumSize = new System.Drawing.Size(700, 530);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Cafun XML Generator";
             this.ResumeLayout(false);

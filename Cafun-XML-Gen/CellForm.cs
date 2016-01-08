@@ -13,16 +13,37 @@ namespace Cafun_XML_Gen
 {
     public partial class CellForm : Form
     {
-        private String color_pattern = @"^[0-9]?[0-9]?[0-9]?/s+[0-9]?[0-9]?[0-9]?/s+[0-9]?[0-9]?[0-9]?$";
+        private String color_pattern = @"^[0-9]{1,3}$";
         public CellForm()
         {
             InitializeComponent();
         }
 
+        private String match_single_RGB(String str)
+        {
+            Regex regex = new Regex(color_pattern, RegexOptions.None);
+            MatchCollection match = regex.Matches(str);
+
+            if (match.Count == 1)
+            {
+                //check for value
+                int i = Int32.Parse(str.ToString());
+                if (i > 255 || i < 0)
+                {
+                    //throw new Exception("not in RGB Range (0 - 255)");
+                    return "Range";
+                }
+                //add to string
+                return str;
+            }
+            return null;
+        }
+
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             bool name = false;
-            bool color = false;
+            bool color = true;
+            lableError.Text = "";
             if(my_cell != null)
             {
                 if (!this.textBoxName.Text.Equals(""))
@@ -32,14 +53,52 @@ namespace Cafun_XML_Gen
                 }
 
                 // here check with regex 
-                Regex regex = new Regex(color_pattern, RegexOptions.None);
-                MatchCollection match = regex.Matches(this.textBoxColor.Text);
-                if (match.Count == 1)
+                String red = this.match_single_RGB(this.textBoxColorRed.Text);
+                String green = this.match_single_RGB(this.textBoxColorGreen.Text);
+                String blue = this.match_single_RGB(this.textBoxColorBlue.Text);
+
+                //red
+                if (red == null)
                 {
-                    my_cell.cell_color = this.textBoxColor.Text;
-                    color = true;
+                    this.lableError.Text += "R is not a valid number (0 - 255) ";
+                    color = false;
                 }
-                    
+                else
+                {
+                    if (red.Contains("Range"))
+                    {
+                        this.lableError.Text += "R not in RGB Range (0 - 255) ";
+                        color = false;
+                    }
+                }
+                //green
+                if (green == null)
+                {
+                    this.lableError.Text += "G is not a valid number (0 - 255) ";
+                    color = false;
+                }
+                else
+                {
+                    if (green.Contains("Range"))
+                    {
+                        this.lableError.Text += "G not in RGB Range (0 - 255) ";
+                        color = false;
+                    }
+                }
+                //blue
+                if (blue == null)
+                {
+                    this.lableError.Text += "B is not a valid number (0 - 255) ";
+                    color = false;
+                }
+                else
+                {
+                    if (blue.Contains("Range"))
+                    {
+                        this.lableError.Text += "B not in RGB Range (0 - 255) ";
+                        color = false;
+                    }
+                }
             }
 
             if(name && color)
@@ -60,6 +119,5 @@ namespace Cafun_XML_Gen
             my_parent.CellChildClosed(false, null);
             this.Close();
         }
-
     }
 }

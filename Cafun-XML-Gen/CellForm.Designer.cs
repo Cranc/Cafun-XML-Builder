@@ -30,28 +30,29 @@
         private void InitializeComponent()
         {
             this.textBoxName = new System.Windows.Forms.TextBox();
-            this.textBoxColor = new System.Windows.Forms.TextBox();
+            this.textBoxColorRed = new System.Windows.Forms.TextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.labelName = new System.Windows.Forms.Label();
             this.labelColor = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxColorGreen = new System.Windows.Forms.TextBox();
+            this.textBoxColorBlue = new System.Windows.Forms.TextBox();
+            this.lableError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(112, 12);
+            this.textBoxName.Location = new System.Drawing.Point(92, 15);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(160, 20);
+            this.textBoxName.Size = new System.Drawing.Size(180, 20);
             this.textBoxName.TabIndex = 0;
             // 
-            // textBoxColor
+            // textBoxColorRed
             // 
-            this.textBoxColor.Location = new System.Drawing.Point(114, 38);
-            this.textBoxColor.Name = "textBoxColor";
-            this.textBoxColor.Size = new System.Drawing.Size(41, 20);
-            this.textBoxColor.TabIndex = 2;
+            this.textBoxColorRed.Location = new System.Drawing.Point(92, 38);
+            this.textBoxColorRed.Name = "textBoxColorRed";
+            this.textBoxColorRed.Size = new System.Drawing.Size(57, 20);
+            this.textBoxColorRed.TabIndex = 2;
             // 
             // buttonAdd
             // 
@@ -91,33 +92,45 @@
             this.labelColor.TabIndex = 6;
             this.labelColor.Text = "Color:";
             // 
-            // textBox1
+            // textBoxColorGreen
             // 
-            this.textBox1.Location = new System.Drawing.Point(156, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(51, 20);
-            this.textBox1.TabIndex = 7;
+            this.textBoxColorGreen.Location = new System.Drawing.Point(154, 38);
+            this.textBoxColorGreen.Name = "textBoxColorGreen";
+            this.textBoxColorGreen.Size = new System.Drawing.Size(57, 20);
+            this.textBoxColorGreen.TabIndex = 7;
             // 
-            // textBox2
+            // textBoxColorBlue
             // 
-            this.textBox2.Location = new System.Drawing.Point(217, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(51, 20);
-            this.textBox2.TabIndex = 8;
+            this.textBoxColorBlue.Location = new System.Drawing.Point(215, 38);
+            this.textBoxColorBlue.Name = "textBoxColorBlue";
+            this.textBoxColorBlue.Size = new System.Drawing.Size(57, 20);
+            this.textBoxColorBlue.TabIndex = 8;
+            // 
+            // lableError
+            // 
+            this.lableError.AutoSize = true;
+            this.lableError.Location = new System.Drawing.Point(12, 62);
+            this.lableError.Name = "lableError";
+            this.lableError.Size = new System.Drawing.Size(0, 13);
+            this.lableError.TabIndex = 9;
             // 
             // CellForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 113);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lableError);
+            this.Controls.Add(this.textBoxColorBlue);
+            this.Controls.Add(this.textBoxColorGreen);
             this.Controls.Add(this.labelColor);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.textBoxColor);
+            this.Controls.Add(this.textBoxColorRed);
             this.Controls.Add(this.textBoxName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CellForm";
             this.Text = "Add Cell";
             this.ResumeLayout(false);
@@ -128,12 +141,13 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.TextBox textBoxColor;
+        private System.Windows.Forms.TextBox textBoxColorRed;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelColor;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxColorGreen;
+        private System.Windows.Forms.TextBox textBoxColorBlue;
+        private System.Windows.Forms.Label lableError;
     }
 }
