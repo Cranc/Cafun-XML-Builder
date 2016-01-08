@@ -35,20 +35,22 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.labelName = new System.Windows.Forms.Label();
             this.labelColor = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(114, 12);
+            this.textBoxName.Location = new System.Drawing.Point(112, 12);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(158, 20);
+            this.textBoxName.Size = new System.Drawing.Size(160, 20);
             this.textBoxName.TabIndex = 0;
             // 
             // textBoxColor
             // 
             this.textBoxColor.Location = new System.Drawing.Point(114, 38);
             this.textBoxColor.Name = "textBoxColor";
-            this.textBoxColor.Size = new System.Drawing.Size(158, 20);
+            this.textBoxColor.Size = new System.Drawing.Size(41, 20);
             this.textBoxColor.TabIndex = 2;
             // 
             // buttonAdd
@@ -89,11 +91,27 @@
             this.labelColor.TabIndex = 6;
             this.labelColor.Text = "Color:";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(156, 38);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(51, 20);
+            this.textBox1.TabIndex = 7;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(217, 38);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(51, 20);
+            this.textBox2.TabIndex = 8;
+            // 
             // CellForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 113);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.labelColor);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.buttonCancel);
@@ -115,5 +133,7 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelColor;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

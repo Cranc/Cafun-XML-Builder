@@ -12,13 +12,17 @@ namespace Cafun_XML_Gen
 {
     public partial class Form1 : Form
     {
-        private System.Collections.Generic.List<Cell> list_cells;
+        private List<Cell> list_cells;
+        private List<Mutation> list_mutations;
+        private List<Condition> list_conditions;
 
         public Form1()
         {
             InitializeComponent();
             // my Lists
-            list_cells = new System.Collections.Generic.List<Cell>();
+            list_cells = new List<Cell>();
+            list_mutations = new List<Mutation>();
+            list_conditions = new List<Condition>();
         }
 
         private void buttonAddMut_Click(object sender, EventArgs e)

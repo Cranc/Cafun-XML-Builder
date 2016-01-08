@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Cafun_XML_Gen
 {
     public partial class CellForm : Form
     {
+        private String color_pattern = @"^[0-9]?[0-9]?[0-9]?/s+[0-9]?[0-9]?[0-9]?/s+[0-9]?[0-9]?[0-9]?$";
         public CellForm()
         {
             InitializeComponent();
@@ -28,9 +30,11 @@ namespace Cafun_XML_Gen
                     my_cell.cell_name = this.textBoxName.Text;
                     name = true;
                 }
-                    
+
                 // here check with regex 
-                if (this.textBoxColor.Text.Equals("255 255 255"))
+                Regex regex = new Regex(color_pattern, RegexOptions.None);
+                MatchCollection match = regex.Matches(this.textBoxColor.Text);
+                if (match.Count == 1)
                 {
                     my_cell.cell_color = this.textBoxColor.Text;
                     color = true;
