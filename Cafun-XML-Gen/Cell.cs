@@ -8,6 +8,7 @@ namespace Cafun_XML_Gen
 {
     public class Cell
     {
+        //<cell-type id="IsotopeA" color="200 255 255">
         //private String name = null;
         //private String color = null;
 
@@ -15,7 +16,7 @@ namespace Cafun_XML_Gen
         public String cell_color { get; set; }
         public String to_XML()
         {
-            return "<cell-type=\"" + cell_name + "\" color=\"" + cell_color + "\">";
+            return "<cell-type id=\"" + cell_name + "\" color=\"" + cell_color + ">";
         }
         public String getEndTag()
         {
