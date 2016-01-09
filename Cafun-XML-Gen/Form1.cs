@@ -48,10 +48,10 @@ namespace Cafun_XML_Gen
                 {
                     throw new Exception("Cell was empty");
                 }
-                this.buttonAddCell.Enabled = true;
-                this.listBoxCells.Items.AddRange(new object[] { myCell.cell_name });
+                this.listBoxCells.Items.AddRange(new object[] { (myCell.cell_name + " " + myCell.cell_color) });
                 this.list_cells.Add(myCell);
             }
+            this.buttonAddCell.Enabled = true;
         }
 
         private void buttonDeleteCell_Click(object sender, EventArgs e)

@@ -12,11 +12,13 @@ namespace Cafun_XML_Gen
 
         Mutation()
         {
+            name = null;
             cell_type = null;
             probability = null;
             priority = PRIORITY.default_;
         }
 
+        public String name { get; set; }
         public String cell_type { get; set; }
         public String probability { get; set; }
         public PRIORITY priority { get; set; }

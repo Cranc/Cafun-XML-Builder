@@ -99,6 +99,9 @@ namespace Cafun_XML_Gen
                         color = false;
                     }
                 }
+
+                if (color)
+                    my_cell.cell_color = red + " " + green + " " + blue;
             }
 
             if(name && color)
