@@ -30,7 +30,7 @@
         {
             this.listBoxCells = new System.Windows.Forms.ListBox();
             this.labelCellList = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxMutations = new System.Windows.Forms.ListBox();
             this.labelmutations = new System.Windows.Forms.Label();
             this.listBoxConditions = new System.Windows.Forms.ListBox();
             this.labelConditions = new System.Windows.Forms.Label();
@@ -53,6 +53,7 @@
             this.listBoxCells.Name = "listBoxCells";
             this.listBoxCells.Size = new System.Drawing.Size(315, 173);
             this.listBoxCells.TabIndex = 0;
+            this.listBoxCells.SelectedIndexChanged += new System.EventHandler(this.listBoxCells_SelectedIndexChanged);
             // 
             // labelCellList
             // 
@@ -63,15 +64,13 @@
             this.labelCellList.TabIndex = 1;
             this.labelCellList.Text = "Cells";
             // 
-            // listBox1
+            // listBoxMutations
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
-            "Mutations"});
-            this.listBox1.Location = new System.Drawing.Point(356, 30);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(316, 173);
-            this.listBox1.TabIndex = 2;
+            this.listBoxMutations.FormattingEnabled = true;
+            this.listBoxMutations.Location = new System.Drawing.Point(356, 30);
+            this.listBoxMutations.Name = "listBoxMutations";
+            this.listBoxMutations.Size = new System.Drawing.Size(316, 173);
+            this.listBoxMutations.TabIndex = 2;
             // 
             // labelmutations
             // 
@@ -85,8 +84,6 @@
             // listBoxConditions
             // 
             this.listBoxConditions.FormattingEnabled = true;
-            this.listBoxConditions.Items.AddRange(new object[] {
-            "Conditions"});
             this.listBoxConditions.Location = new System.Drawing.Point(12, 283);
             this.listBoxConditions.Name = "listBoxConditions";
             this.listBoxConditions.Size = new System.Drawing.Size(315, 199);
@@ -139,6 +136,7 @@
             this.buttonDeleteMut.TabIndex = 9;
             this.buttonDeleteMut.Text = "Delete Mutation";
             this.buttonDeleteMut.UseVisualStyleBackColor = true;
+            this.buttonDeleteMut.Click += new System.EventHandler(this.buttonDeleteMut_Click);
             // 
             // buttonAddCon
             // 
@@ -160,6 +158,7 @@
             // 
             // buttonChangeCell
             // 
+            this.buttonChangeCell.Enabled = false;
             this.buttonChangeCell.Location = new System.Drawing.Point(121, 208);
             this.buttonChangeCell.Name = "buttonChangeCell";
             this.buttonChangeCell.Size = new System.Drawing.Size(100, 23);
@@ -169,6 +168,7 @@
             // 
             // buttonChangeMut
             // 
+            this.buttonChangeMut.Enabled = false;
             this.buttonChangeMut.Location = new System.Drawing.Point(462, 208);
             this.buttonChangeMut.Name = "buttonChangeMut";
             this.buttonChangeMut.Size = new System.Drawing.Size(100, 23);
@@ -178,6 +178,7 @@
             // 
             // buttonChangeCon
             // 
+            this.buttonChangeCon.Enabled = false;
             this.buttonChangeCon.Location = new System.Drawing.Point(333, 369);
             this.buttonChangeCon.Name = "buttonChangeCon";
             this.buttonChangeCon.Size = new System.Drawing.Size(100, 23);
@@ -198,7 +199,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 491);
+            this.ClientSize = new System.Drawing.Size(684, 492);
             this.Controls.Add(this.buttonWrite);
             this.Controls.Add(this.buttonChangeCon);
             this.Controls.Add(this.buttonChangeMut);
@@ -212,13 +213,13 @@
             this.Controls.Add(this.labelConditions);
             this.Controls.Add(this.listBoxConditions);
             this.Controls.Add(this.labelmutations);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBoxMutations);
             this.Controls.Add(this.labelCellList);
             this.Controls.Add(this.listBoxCells);
-            this.MinimumSize = new System.Drawing.Size(700, 530);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(700, 530);
             this.Name = "Form1";
             this.Text = "Cafun XML Generator";
             this.ResumeLayout(false);
@@ -230,7 +231,7 @@
 
         private System.Windows.Forms.ListBox listBoxCells;
         private System.Windows.Forms.Label labelCellList;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBoxMutations;
         private System.Windows.Forms.Label labelmutations;
         private System.Windows.Forms.ListBox listBoxConditions;
         private System.Windows.Forms.Label labelConditions;

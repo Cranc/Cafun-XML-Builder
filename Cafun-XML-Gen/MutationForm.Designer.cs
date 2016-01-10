@@ -194,6 +194,7 @@
             this.buttonAdd.TabIndex = 15;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonCancle
             // 
@@ -203,6 +204,7 @@
             this.buttonCancle.TabIndex = 16;
             this.buttonCancle.Text = "Cancel";
             this.buttonCancle.UseVisualStyleBackColor = true;
+            this.buttonCancle.Click += new System.EventHandler(this.buttonCancle_Click);
             // 
             // MutationForm
             // 

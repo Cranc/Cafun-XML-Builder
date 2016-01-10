@@ -14,6 +14,8 @@ namespace Cafun_XML_Gen
     public partial class CellForm : Form
     {
         private String color_pattern = @"^[0-9]{1,3}$";
+        public Cell my_cell { get; set; }
+
         public CellForm()
         {
             InitializeComponent();
@@ -107,20 +109,15 @@ namespace Cafun_XML_Gen
             if(name && color)
             {
                 //send parent information here
-                my_parent.CellChildClosed(true, my_cell);
-                this.Close();
+                this.DialogResult = DialogResult.OK;
             }
                 
         }
 
-        public Cell my_cell { get; set; }
-        public Form1 my_parent { get; set; }
-
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             //send parent information here
-            my_parent.CellChildClosed(false, null);
-            this.Close();
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

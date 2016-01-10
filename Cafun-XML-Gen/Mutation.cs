@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Cafun_XML_Gen
 {
-    enum PRIORITY { top = 0, very_high, high, medium, default_, low, very_low, lowest};
-    class Mutation
+    public enum PRIORITY { top = 0, very_high, high, medium, default_, low, very_low, lowest};
+    public class Mutation
     {
 
-        Mutation()
+        public Mutation()
         {
             name = null;
             cell_type = null;

@@ -14,6 +14,13 @@ namespace Cafun_XML_Gen
 
         public String cell_name { get; set; }
         public String cell_color { get; set; }
+        public List<Mutation> mutations { get; set; }
+
+        public Cell()
+        {
+            mutations = new List<Mutation>();
+        }
+
         public String to_XML()
         {
             return "<cell-type id=\"" + cell_name + "\" color=\"" + cell_color + ">";
