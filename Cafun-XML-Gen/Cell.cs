@@ -19,6 +19,8 @@ namespace Cafun_XML_Gen
         public Cell()
         {
             mutations = new List<Mutation>();
+            cell_name = null;
+            cell_color = null;
         }
 
         public String to_XML()

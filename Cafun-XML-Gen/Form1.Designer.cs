@@ -71,6 +71,7 @@
             this.listBoxMutations.Name = "listBoxMutations";
             this.listBoxMutations.Size = new System.Drawing.Size(316, 173);
             this.listBoxMutations.TabIndex = 2;
+            this.listBoxMutations.SelectedIndexChanged += new System.EventHandler(this.listBoxMutations_SelectedIndexChanged);
             // 
             // labelmutations
             // 
@@ -88,6 +89,7 @@
             this.listBoxConditions.Name = "listBoxConditions";
             this.listBoxConditions.Size = new System.Drawing.Size(315, 199);
             this.listBoxConditions.TabIndex = 4;
+            this.listBoxConditions.SelectedIndexChanged += new System.EventHandler(this.listBoxConditions_SelectedIndexChanged);
             // 
             // labelConditions
             // 
@@ -146,6 +148,7 @@
             this.buttonAddCon.TabIndex = 10;
             this.buttonAddCon.Text = "Add Condition";
             this.buttonAddCon.UseVisualStyleBackColor = true;
+            this.buttonAddCon.Click += new System.EventHandler(this.buttonAddCon_Click);
             // 
             // buttonDeleteCon
             // 
@@ -155,6 +158,7 @@
             this.buttonDeleteCon.TabIndex = 11;
             this.buttonDeleteCon.Text = "Delete Condition";
             this.buttonDeleteCon.UseVisualStyleBackColor = true;
+            this.buttonDeleteCon.Click += new System.EventHandler(this.buttonDeleteCon_Click);
             // 
             // buttonChangeCell
             // 
@@ -194,6 +198,7 @@
             this.buttonWrite.TabIndex = 15;
             this.buttonWrite.Text = "Write";
             this.buttonWrite.UseVisualStyleBackColor = true;
+            this.buttonWrite.Click += new System.EventHandler(this.buttonWrite_Click);
             // 
             // Form1
             // 

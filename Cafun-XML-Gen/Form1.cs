@@ -21,6 +21,8 @@ namespace Cafun_XML_Gen
             list_cells = new List<Cell>();
         }
 
+        // button-events
+
         private void buttonAddMut_Click(object sender, EventArgs e)
         {
             int index = this.listBoxCells.SelectedIndex;
@@ -85,6 +87,75 @@ namespace Cafun_XML_Gen
                 this.list_cells.RemoveAt(index);
             }
         }
+
+        private void buttonAddCon_Click(object sender, EventArgs e)
+        {
+            int indexCell = this.listBoxCells.SelectedIndex;
+            int indexMut = this.listBoxMutations.SelectedIndex;
+
+            if(indexCell != -1 && indexMut != -1)
+            {
+                ConditionForm form = new ConditionForm();
+                Condition parent_condition = new Condition();
+                form.my_condition = parent_condition;
+                form.ShowDialog();
+
+                //stuff after finish here
+
+                if (form.DialogResult == DialogResult.OK)
+                {
+                    Condition myCon = form.my_condition;
+                    if (myCon != null)
+                        this.list_cells[indexCell].mutations[indexMut].conditons.Add(myCon);
+                    else
+                        throw new Exception("Condition object was empty");
+                }
+            }
+
+            this.listBoxMutations_SelectedIndexChanged(null, null);
+        }
+
+        private void buttonDeleteCon_Click(object sender, EventArgs e)
+        {
+            int indexCell = this.listBoxCells.SelectedIndex;
+            int indexMut = this.listBoxMutations.SelectedIndex;
+            int indexCon = this.listBoxConditions.SelectedIndex;
+
+            if (indexCell != -1 && indexMut != -1 && indexCon != -1)
+            {
+                this.list_cells[indexCell].mutations[indexMut].conditons.RemoveAt(indexCon);
+                listBoxMutations_SelectedIndexChanged(null, null);
+            }
+        }
+
+        private void buttonWrite_Click(object sender, EventArgs e)
+        {
+            String xml = null;
+        }
+
+        //Change events
+
+        private void listBoxConditions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBoxMutations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int indexCell = this.listBoxCells.SelectedIndex;
+            int indexMut = this.listBoxMutations.SelectedIndex;
+
+            this.listBoxConditions.Items.Clear();
+
+            if (indexCell != -1 && indexMut != -1)
+            {
+                foreach (Condition c in this.list_cells[indexCell].mutations[indexMut].conditons)
+                {
+                    this.listBoxConditions.Items.Add(c.cell_type + " max:" + c.max + " min:" + c.min);
+                }
+            }
+        }
+
 
         private void listBoxCells_SelectedIndexChanged(object sender, EventArgs e)
         {

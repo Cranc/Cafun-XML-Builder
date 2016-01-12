@@ -6,13 +6,21 @@ using System.Threading.Tasks;
 
 namespace Cafun_XML_Gen
 {
-    enum SCOPE { NORTH_WEST = 0, NORTH, NORTH_EAST, EAST, SOUTH_EAST, SOUTH, SOUTH_WEST, WEST }
-    class Condition
+    public enum SCOPE { NORTH_WEST = 0, NORTH, NORTH_EAST, EAST, SOUTH_EAST, SOUTH, SOUTH_WEST, WEST }
+    public class Condition
     {
         public String cell_type { get; set; }
         public String min { get; set; }
         public String max { get; set; }
         public List<SCOPE> scope { get; set; }
+
+        public Condition()
+        {
+            cell_type = null;
+            min = null;
+            max = null;
+            scope = null;
+        }
 
         public String toXML()
         {
