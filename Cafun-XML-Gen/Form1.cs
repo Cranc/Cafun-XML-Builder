@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Cafun_XML_Gen
@@ -130,7 +125,42 @@ namespace Cafun_XML_Gen
 
         private void buttonWrite_Click(object sender, EventArgs e)
         {
-            String xml = null;
+            WriteForm form = new WriteForm();
+            form.ShowDialog();
+
+
+            if(form.DialogResult == DialogResult.OK)
+            {
+                var name = form.name;
+                var author = form.author;
+                var xml_descritpion = form.xml_description;
+                String xml = "<simulation name=\"" + name + "\" author=\"" + author + "\">";
+
+                xml += xml_descritpion;
+                foreach (Cell c in list_cells)
+                {
+                    c.to_XML();
+                    xml += c.xml;
+                }
+
+                //here charts
+
+                //end tag
+                xml += "</simulation>";
+
+                string path;
+
+                if (!name.Equals(""))
+                    path = Path.Combine(Environment.CurrentDirectory, "xml_files", name + ".xml");
+                else
+                    path = Path.Combine(Environment.CurrentDirectory, "xml_files", "XMLTEST.xml");
+
+                if (!File.Exists(path))
+                {
+                    File.Create(path).Close();
+                    File.WriteAllText(path, xml);
+                }
+            }
         }
 
         //Change events

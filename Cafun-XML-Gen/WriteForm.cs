@@ -24,7 +24,7 @@ namespace Cafun_XML_Gen
         private void buttonWrite_Click(object sender, EventArgs e)
         {
             xml_description = "<description> \n";
-            xml_description += "<section caption = \"Guide\" >" + this.richTextBoxGuide.Text + "</section>";
+            xml_description += "<section caption = \"Guide\">" + this.richTextBoxGuide.Text + "</section>";
             xml_description += "<section caption=\"Description\">" + this.richTextBoxDescription.Text + "</section>";
             xml_description += "</description>";
 
@@ -32,6 +32,11 @@ namespace Cafun_XML_Gen
             author = this.textBoxAuthor.Text;
 
             DialogResult = DialogResult.OK;
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
         }
     }
 }

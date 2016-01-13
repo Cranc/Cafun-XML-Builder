@@ -16,6 +16,8 @@ namespace Cafun_XML_Gen
         public String cell_color { get; set; }
         public List<Mutation> mutations { get; set; }
 
+        public String xml { get; private set; }
+
         public Cell()
         {
             mutations = new List<Mutation>();
@@ -23,13 +25,18 @@ namespace Cafun_XML_Gen
             cell_color = null;
         }
 
-        public String to_XML()
+        public void to_XML()
         {
-            return "<cell-type id=\"" + cell_name + "\" color=\"" + cell_color + ">";
+            xml =  "<cell-type id=\"" + cell_name + "\" color=\"" + cell_color + "\"> \n";
+            foreach (Mutation m in mutations)
+            {
+                xml += m.toXML();
+            }
+            getEndTag();
         }
-        public String getEndTag()
+        private void getEndTag()
         {
-            return "</cell-type>";
+            xml +=  "</cell-type>";
         }
     }
 }

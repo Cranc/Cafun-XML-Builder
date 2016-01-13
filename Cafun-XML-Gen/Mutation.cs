@@ -46,10 +46,17 @@ namespace Cafun_XML_Gen
 
             mystr += ">";
 
+            foreach (Condition c in conditons)
+            {
+                mystr += c.toXML();
+            }
+
+            mystr += getEndTag();
+
             return mystr;
         }
 
-        public String getEndTag()
+        private String getEndTag()
         {
             return "</mutation>";
         }

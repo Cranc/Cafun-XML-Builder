@@ -24,7 +24,7 @@ namespace Cafun_XML_Gen
 
         public String toXML()
         {
-            String mystr = "<condition=\"" + cell_type + "\"";
+            String mystr = "<condition cell-type=\"" + cell_type + "\"";
 
             if (min != null)
                 mystr += " min=\"" + min + "\"";
@@ -33,7 +33,7 @@ namespace Cafun_XML_Gen
                 mystr += " max=\"" + max + "\"";
 
             if (scope != null) {
-                mystr += "scope=\"";
+                mystr += " scope=\"";
                 scope.ForEach(delegate (SCOPE s)
                 {
                     switch (s)
@@ -53,11 +53,12 @@ namespace Cafun_XML_Gen
             }
 
             mystr += ">";
+            mystr += getEndTag();
 
             return mystr;
         }
 
-        public String getEndTag()
+        private String getEndTag()
         {
             return "</condition>";
         }
