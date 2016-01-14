@@ -7,6 +7,9 @@ The Cafun XmL Builder makes it possible to create Cafun simulations without the 
 Currently the Cafun XmL Builder only supports Windows.
 Issues can be directed towards the Issues tab of the Repository.
 
+#Requirements
+.Net Framework 4.5.2
+
 #Download
 Dropbox-link
 Windows version 1.0.0: https://www.dropbox.com/s/mqxla995gwcqfdi/Cafun-XML-Gen.exe?dl=0
