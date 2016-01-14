@@ -24,14 +24,14 @@ namespace Cafun_XML_Gen
         {
             bool type, min, max, scope;
             type = min = max = scope = false;
-            if(my_condition != null)
+            if (my_condition != null)
             {
                 if (!this.textBoxcelltype.Text.Equals(""))
                 {
                     this.my_condition.cell_type = this.textBoxcelltype.Text;
                     type = true;
                 }
-                if(!this.textBoxMin.Text.Equals(""))
+                if (!this.textBoxMin.Text.Equals(""))
                 {
                     this.my_condition.min = this.textBoxMin.Text;
                 }
@@ -41,7 +41,7 @@ namespace Cafun_XML_Gen
                 }
 
                 List<SCOPE> myList = getScopes();
-                if(myList.Count > 0)
+                if (myList.Count > 0)
                 {
                     my_condition.scope = myList;
                 }
@@ -50,8 +50,9 @@ namespace Cafun_XML_Gen
                 {
                     this.DialogResult = DialogResult.OK;
                 }
-            } else
-                throw new Exception("Form has not Object to save to.");
+            }
+            else
+                MessageBox.Show("there was no condition object for this windows close and try again.");
         }
 
         private List<SCOPE> getScopes()

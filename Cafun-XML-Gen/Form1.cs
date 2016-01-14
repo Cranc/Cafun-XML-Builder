@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Cafun_XML_Gen
 {
@@ -27,18 +28,18 @@ namespace Cafun_XML_Gen
                 Mutation parent_mut = new Mutation();
                 form.my_mutation = parent_mut;
                 form.ShowDialog();
-                if(form.DialogResult == DialogResult.OK)
+                if (form.DialogResult == DialogResult.OK)
                 {
                     Mutation myMutation = form.my_mutation;
                     if (myMutation == null)
                     {
-                        throw new Exception("Mutation was empty");
-                    }
-                    this.list_cells[index].mutations.Add(myMutation);
+                        this.errorMessages("somehow the mutation object was empty, try again.");
+                    }else
+                        this.list_cells[index].mutations.Add(myMutation);
                 }
             }
             else
-                throw new Exception("no selected cell");
+                this.errorMessages("no Cell was selected");
             this.listBoxCells_SelectedIndexChanged(null, null);
         }
 
@@ -51,6 +52,8 @@ namespace Cafun_XML_Gen
                 this.listBoxMutations.Items.RemoveAt(index);
                 this.list_cells[this.listBoxCells.SelectedIndex].mutations.RemoveAt(index);
             }
+            else
+                errorMessages("you need to select a mutation");
         }
 
         private void buttonAddCell_Click(object sender, EventArgs e)
@@ -65,10 +68,13 @@ namespace Cafun_XML_Gen
                 Cell myCell = form.my_cell;
                 if (myCell == null)
                 {
-                    throw new Exception("Cell was empty");
+                    this.errorMessages("somehow the cell object was empty, try again.");
                 }
-                this.listBoxCells.Items.AddRange(new object[] { (myCell.cell_name + " " + myCell.cell_color) });
-                this.list_cells.Add(myCell);
+                else
+                {
+                    this.listBoxCells.Items.AddRange(new object[] { (myCell.cell_name + " " + myCell.cell_color) });
+                    this.list_cells.Add(myCell);
+                }
             }
         }
 
@@ -81,6 +87,8 @@ namespace Cafun_XML_Gen
                 this.listBoxCells.Items.RemoveAt(index);
                 this.list_cells.RemoveAt(index);
             }
+            else
+                errorMessages("you need to select a cell");
         }
 
         private void buttonAddCon_Click(object sender, EventArgs e)
@@ -88,7 +96,7 @@ namespace Cafun_XML_Gen
             int indexCell = this.listBoxCells.SelectedIndex;
             int indexMut = this.listBoxMutations.SelectedIndex;
 
-            if(indexCell != -1 && indexMut != -1)
+            if (indexCell != -1 && indexMut != -1)
             {
                 ConditionForm form = new ConditionForm();
                 Condition parent_condition = new Condition();
@@ -103,9 +111,11 @@ namespace Cafun_XML_Gen
                     if (myCon != null)
                         this.list_cells[indexCell].mutations[indexMut].conditons.Add(myCon);
                     else
-                        throw new Exception("Condition object was empty");
+                        this.errorMessages("somehow the condition object was empty, try again.");
                 }
             }
+            else
+                errorMessages("you need to select a cell and mutation.");
 
             this.listBoxMutations_SelectedIndexChanged(null, null);
         }
@@ -121,6 +131,8 @@ namespace Cafun_XML_Gen
                 this.list_cells[indexCell].mutations[indexMut].conditons.RemoveAt(indexCon);
                 listBoxMutations_SelectedIndexChanged(null, null);
             }
+            else
+                errorMessages("you need to select a condition.");
         }
 
         private void buttonWrite_Click(object sender, EventArgs e)
@@ -148,6 +160,8 @@ namespace Cafun_XML_Gen
                 //end tag
                 xml += "</simulation>";
 
+                xml = formatXml(xml);
+
                 string path;
 
                 if (!name.Equals(""))
@@ -159,8 +173,27 @@ namespace Cafun_XML_Gen
                 {
                     File.Create(path).Close();
                     File.WriteAllText(path, xml);
+
                 }
             }
+        }
+
+        private string formatXml(string xml)
+        {
+            try
+            {
+                XDocument doc = XDocument.Parse(xml);
+                return doc.ToString();
+            }
+            catch (Exception)
+            {
+                return xml;
+            }
+        }
+
+        private void errorMessages(String msg)
+        {
+            MessageBox.Show(msg);
         }
 
         //Change events

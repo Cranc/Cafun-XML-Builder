@@ -41,7 +41,7 @@ namespace Cafun_XML_Gen
                 case PRIORITY.top: mystr += " priority=\"high\""; break;
                 case PRIORITY.very_high: mystr += " priority=\"high\""; break;
                 case PRIORITY.very_low: mystr += " priority=\"high\""; break;
-                default: throw new Exception("can´t define priority!");
+                default: break;
             }
 
             mystr += ">";
