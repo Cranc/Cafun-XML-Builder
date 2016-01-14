@@ -15,7 +15,7 @@ Dropbox-link
 Windows version 1.0.1: https://www.dropbox.com/s/prjn2sdkc4ovzx4/Cafun-XML-Gen.exe?dl=0
 
 #old versions
-Windows version 1.0.0: https://www.dropbox.com/s/mqxla995gwcqfdi/Cafun-XML-Gen.exe?dl=0
+Windows version 1.0.0: https://www.dropbox.com/s/juqoc3t6vh12jqr/Cafun-XML-Gen.exe?dl=0
 
 #Planned Updates
 + Chart support (priority high)
