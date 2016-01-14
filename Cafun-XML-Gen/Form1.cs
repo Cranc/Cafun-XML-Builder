@@ -164,6 +164,10 @@ namespace Cafun_XML_Gen
 
                 string path;
 
+                path = Path.Combine(Environment.CurrentDirectory, "xml_files");
+
+                Directory.CreateDirectory(path);
+
                 if (!name.Equals(""))
                     path = Path.Combine(Environment.CurrentDirectory, "xml_files", name + ".xml");
                 else
@@ -174,6 +178,17 @@ namespace Cafun_XML_Gen
                     File.Create(path).Close();
                     File.WriteAllText(path, xml);
 
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("There already exist a file with that name, do you want to overwrite it?", "Overwrite?", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        //overwrite here
+                        File.Delete(path);
+                        File.Create(path).Close();
+                        File.WriteAllText(path, xml);
+                    }
                 }
             }
         }
@@ -218,7 +233,6 @@ namespace Cafun_XML_Gen
                 }
             }
         }
-
 
         private void listBoxCells_SelectedIndexChanged(object sender, EventArgs e)
         {
