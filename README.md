@@ -21,3 +21,4 @@ Windows version 1.0.0: https://www.dropbox.com/s/juqoc3t6vh12jqr/Cafun-XML-Gen.e
 + Chart support (high)
 + Change button support (low)
 + Add Documentation (high)
++ Cross Platform version (high)
