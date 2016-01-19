@@ -203,6 +203,13 @@ namespace Cafun_XML_Gen
                 }
 
                 //here charts
+                xml += "<chart>";
+                foreach (Cell c in list_cells)
+                {
+                    if(c.chart)
+                        xml += c.to_Chart();
+                }
+                xml += "</chart>";
 
                 //add end tag end make the xml pretty
                 xml += "</simulation>";

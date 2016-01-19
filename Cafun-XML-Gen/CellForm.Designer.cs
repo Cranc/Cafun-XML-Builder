@@ -38,6 +38,7 @@
             this.textBoxColorGreen = new System.Windows.Forms.TextBox();
             this.textBoxColorBlue = new System.Windows.Forms.TextBox();
             this.lableError = new System.Windows.Forms.Label();
+            this.checkBoxChart = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // textBoxName
@@ -56,7 +57,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(12, 78);
+            this.buttonAdd.Location = new System.Drawing.Point(12, 90);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(100, 23);
             this.buttonAdd.TabIndex = 3;
@@ -66,7 +67,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(172, 78);
+            this.buttonCancel.Location = new System.Drawing.Point(172, 90);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(100, 23);
             this.buttonCancel.TabIndex = 4;
@@ -114,11 +115,22 @@
             this.lableError.Size = new System.Drawing.Size(0, 13);
             this.lableError.TabIndex = 9;
             // 
+            // checkBoxChart
+            // 
+            this.checkBoxChart.AutoSize = true;
+            this.checkBoxChart.Location = new System.Drawing.Point(12, 67);
+            this.checkBoxChart.Name = "checkBoxChart";
+            this.checkBoxChart.Size = new System.Drawing.Size(103, 17);
+            this.checkBoxChart.TabIndex = 10;
+            this.checkBoxChart.Text = "Add cell to chart";
+            this.checkBoxChart.UseVisualStyleBackColor = true;
+            // 
             // CellForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 113);
+            this.ClientSize = new System.Drawing.Size(284, 125);
+            this.Controls.Add(this.checkBoxChart);
             this.Controls.Add(this.lableError);
             this.Controls.Add(this.textBoxColorBlue);
             this.Controls.Add(this.textBoxColorGreen);
@@ -149,5 +161,6 @@
         private System.Windows.Forms.TextBox textBoxColorGreen;
         private System.Windows.Forms.TextBox textBoxColorBlue;
         private System.Windows.Forms.Label lableError;
+        private System.Windows.Forms.CheckBox checkBoxChart;
     }
 }

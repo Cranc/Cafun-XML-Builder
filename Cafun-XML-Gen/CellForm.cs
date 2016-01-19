@@ -69,6 +69,9 @@ namespace Cafun_XML_Gen
                     name = true;
                 }
 
+                if (this.checkBoxChart.Checked)
+                    my_cell.chart = true;
+
                 // here check with regex 
                 String red = this.match_single_RGB(this.textBoxColorRed.Text);
                 String green = this.match_single_RGB(this.textBoxColorGreen.Text);

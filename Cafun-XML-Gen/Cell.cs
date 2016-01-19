@@ -28,6 +28,10 @@ namespace Cafun_XML_Gen
         /// </summary>
         public String xml { get; private set; }
         /// <summary>
+        /// contains bool that defines if cell should be displayed in chart
+        /// </summary>
+        public bool chart { get; set; }
+        /// <summary>
         /// Constructor initalizes cell default values
         /// </summary>
         public Cell()
@@ -36,6 +40,7 @@ namespace Cafun_XML_Gen
             cell_name = null;
             cell_color = null;
             xml = null;
+            chart = false;
         }
         /// <summary>
         /// to_XML() function calls the toXML function of its own mutations, generates a cafun usable XML code and safes it to @xml
@@ -55,6 +60,14 @@ namespace Cafun_XML_Gen
         private void getEndTag()
         {
             xml +=  "</cell-type>";
+        }
+        /// <summary>
+        /// function creates chart xml string out of objects values.
+        /// </summary>
+        /// <returns>String that contains xml usable code that represents chart entry</returns>
+        public String to_Chart()
+        {
+            return "<indicator cell-type=\"" + cell_name + "\" color=\"" + cell_color + "\"/>";
         }
     }
 }

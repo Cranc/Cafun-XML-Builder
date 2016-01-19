@@ -46,12 +46,13 @@ namespace Cafun_XML_Gen
             if (!this.textBoxProb.Text.Equals(""))
                 probability = true;
             //add to object and end with sucess
-            if (celltype && probability)
+            if (celltype)
             {
                 my_mutation.cell_type = this.textBoxCell.Text;
-                my_mutation.probability = this.textBoxProb.Text;
                 my_mutation.priority = this.checkedRadioButton();
 
+                if(probability)
+                    my_mutation.probability = this.textBoxProb.Text;
                 if (name)
                     my_mutation.name = this.textBoxName.Text;
                 else
