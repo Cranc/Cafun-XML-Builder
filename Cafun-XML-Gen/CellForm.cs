@@ -13,7 +13,13 @@ namespace Cafun_XML_Gen
 {
     public partial class CellForm : Form
     {
+        /// <summary>
+        /// String that contains the Regex for defining part of the color pattern.
+        /// </summary>
         private String color_pattern = @"^[0-9]{1,3}$";
+        /// <summary>
+        /// Contains the cell used by this form.
+        /// </summary>
         public Cell my_cell { get; set; }
 
         public CellForm()
@@ -21,6 +27,11 @@ namespace Cafun_XML_Gen
             InitializeComponent();
         }
 
+        /// <summary>
+        /// takes a String and checks if the String contains a decimal RGB part. (0-255)
+        /// </summary>
+        /// <param name="str">contains String to check</param>
+        /// <returns>returns 0, when String does not contain 1-3 digits. returns "Range" when value is not within range of 0-255, else returns the String</returns>
         private String match_single_RGB(String str)
         {
             Regex regex = new Regex(color_pattern, RegexOptions.None);
@@ -40,7 +51,11 @@ namespace Cafun_XML_Gen
             }
             return null;
         }
-
+        /// <summary>
+        /// function that reactes on Add Cell button click, extracts the Information out of the form and signlas Main Form sucess before closing it.
+        /// </summary>
+        /// <param name="sender">contains send object</param>
+        /// <param name="e">contains event</param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             bool name = false;
@@ -113,7 +128,11 @@ namespace Cafun_XML_Gen
             }
                 
         }
-
+        /// <summary>
+        /// function that cancles the action and closes the form.
+        /// </summary>
+        /// <param name="sender">contains send object</param>
+        /// <param name="e">contains event</param>
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             //send parent information here

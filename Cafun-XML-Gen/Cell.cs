@@ -6,25 +6,40 @@ using System.Threading.Tasks;
 
 namespace Cafun_XML_Gen
 {
+    /// <summary>
+    /// Cell class contains information about a cell like name, color, and a list of mutations that belong to this cell
+    /// </summary>
     public class Cell
     {
-        //<cell-type id="IsotopeA" color="200 255 255">
-        //private String name = null;
-        //private String color = null;
-
+        /// <summary>
+        /// contains name of cell as String
+        /// </summary>
         public String cell_name { get; set; }
+        /// <summary>
+        /// contains color of cell as String
+        /// </summary>
         public String cell_color { get; set; }
+        /// <summary>
+        /// contains list of mutations
+        /// </summary>
         public List<Mutation> mutations { get; set; }
-
+        /// <summary>
+        /// contains the xml code, after @to_XML() was called, as String
+        /// </summary>
         public String xml { get; private set; }
-
+        /// <summary>
+        /// Constructor initalizes cell default values
+        /// </summary>
         public Cell()
         {
             mutations = new List<Mutation>();
             cell_name = null;
             cell_color = null;
+            xml = null;
         }
-
+        /// <summary>
+        /// to_XML() function calls the toXML function of its own mutations, generates a cafun usable XML code and safes it to @xml
+        /// </summary>
         public void to_XML()
         {
             xml =  "<cell-type id=\"" + cell_name + "\" color=\"" + cell_color + "\"> \n";
@@ -34,6 +49,9 @@ namespace Cafun_XML_Gen
             }
             getEndTag();
         }
+        /// <summary>
+        /// private function that adds the EndTag to @xml
+        /// </summary>
         private void getEndTag()
         {
             xml +=  "</cell-type>";

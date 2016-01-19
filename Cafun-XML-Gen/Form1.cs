@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Deployment;
 
 namespace Cafun_XML_Gen
 {
@@ -16,9 +17,7 @@ namespace Cafun_XML_Gen
             // myLists
             list_cells = new List<Cell>();
         }
-
         // button-events
-
         private void buttonAddMut_Click(object sender, EventArgs e)
         {
             int index = this.listBoxCells.SelectedIndex;
