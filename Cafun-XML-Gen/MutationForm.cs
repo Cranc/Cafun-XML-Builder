@@ -10,30 +10,42 @@ using System.Windows.Forms;
 
 namespace Cafun_XML_Gen
 {
+    /// <summary>
+    /// public class that represents the mutation form
+    /// </summary>
     public partial class MutationForm : Form
     {
+        /// <summary>
+        /// contains a mutation object given by the parent form.
+        /// </summary>
         public Mutation my_mutation { get; set; }
-
+        /// <summary>
+        /// default consturctor
+        /// </summary>
         public MutationForm()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// function reacts on add button click, cheks if needed values are given and adds them to the mutation object.
+        /// </summary>
+        /// <param name="sender">object sender</param>
+        /// <param name="e">event arguments</param>
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             bool name = false;
             bool celltype = false;
             bool probability = false;
 
+            //check for not empty text boxes
             if (!this.textBoxName.Text.Equals(""))
                 name = true;
-
             if (!this.textBoxCell.Text.Equals(""))
                 celltype = true;
 
             if (!this.textBoxProb.Text.Equals(""))
                 probability = true;
-
+            //add to object and end with sucess
             if (celltype && probability)
             {
                 my_mutation.cell_type = this.textBoxCell.Text;
@@ -48,12 +60,19 @@ namespace Cafun_XML_Gen
                 this.DialogResult = DialogResult.OK;
             }
         }
-
+        /// <summary>
+        /// function react on cancle button click and closes the form with cancel message for parent.
+        /// </summary>
+        /// <param name="sender">object sender</param>
+        /// <param name="e">event arguments</param>
         private void buttonCancle_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
         }
-
+        /// <summary>
+        /// function checks which radio button is checked.
+        /// </summary>
+        /// <returns>PRIORITY equivalent the button</returns>
         private PRIORITY checkedRadioButton()
         {
             if (this.radioButtonDefault.Checked)

@@ -89,7 +89,6 @@
             this.listBoxConditions.Name = "listBoxConditions";
             this.listBoxConditions.Size = new System.Drawing.Size(315, 199);
             this.listBoxConditions.TabIndex = 4;
-            this.listBoxConditions.SelectedIndexChanged += new System.EventHandler(this.listBoxConditions_SelectedIndexChanged);
             // 
             // labelConditions
             // 
