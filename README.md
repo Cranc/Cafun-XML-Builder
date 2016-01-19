@@ -18,6 +18,7 @@ Dropbox-link
 Windows version 1.1.0: https://www.dropbox.com/s/ln9bd8jnug6zm7f/Cafun-XML-Gen.exe?dl=0
 
 Cross platform version: 1.1.0: https://www.dropbox.com/s/tdh1sggrxhc4chv/Cafun-XML-Gen.exe?dl=0
+(tested on Ubuntu & Mint)
 
 #old versions
 Windows version 1.0.2: https://www.dropbox.com/s/hskp4x723godwad/Cafun-XML-Gen.exe?dl=0
@@ -28,8 +29,9 @@ Windows version 1.0.0: https://www.dropbox.com/s/juqoc3t6vh12jqr/Cafun-XML-Gen.e
 
 #Planned Updates
 + Change button support (low)
-+ Cross Platform version (high)
++ checks for inputs (medium)
 
 #Finished Updates
 + Add Documentation (high)
 + Chart support (high)
++ Cross Platform version (high)
