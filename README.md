@@ -30,6 +30,7 @@ Windows version 1.0.0: https://www.dropbox.com/s/juqoc3t6vh12jqr/Cafun-XML-Gen.e
 #Planned Updates
 + Change button support (low)
 + checks for inputs (medium)
++ Wiki (medium)
 
 #Finished Updates
 + Add Documentation (high)
