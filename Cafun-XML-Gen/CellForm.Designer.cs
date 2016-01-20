@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxColorRed = new System.Windows.Forms.TextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -39,6 +40,9 @@
             this.textBoxColorBlue = new System.Windows.Forms.TextBox();
             this.lableError = new System.Windows.Forms.Label();
             this.checkBoxChart = new System.Windows.Forms.CheckBox();
+            this.toolTipName = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipColor = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipChart = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // textBoxName
@@ -51,9 +55,11 @@
             // textBoxColorRed
             // 
             this.textBoxColorRed.Location = new System.Drawing.Point(92, 38);
+            this.textBoxColorRed.MaxLength = 3;
             this.textBoxColorRed.Name = "textBoxColorRed";
             this.textBoxColorRed.Size = new System.Drawing.Size(57, 20);
             this.textBoxColorRed.TabIndex = 2;
+            this.textBoxColorRed.TextChanged += new System.EventHandler(this.textBoxColorRed_TextChanged);
             // 
             // buttonAdd
             // 
@@ -96,16 +102,20 @@
             // textBoxColorGreen
             // 
             this.textBoxColorGreen.Location = new System.Drawing.Point(154, 38);
+            this.textBoxColorGreen.MaxLength = 3;
             this.textBoxColorGreen.Name = "textBoxColorGreen";
             this.textBoxColorGreen.Size = new System.Drawing.Size(57, 20);
             this.textBoxColorGreen.TabIndex = 7;
+            this.textBoxColorGreen.TextChanged += new System.EventHandler(this.textBoxColorGreen_TextChanged);
             // 
             // textBoxColorBlue
             // 
             this.textBoxColorBlue.Location = new System.Drawing.Point(215, 38);
+            this.textBoxColorBlue.MaxLength = 3;
             this.textBoxColorBlue.Name = "textBoxColorBlue";
             this.textBoxColorBlue.Size = new System.Drawing.Size(57, 20);
             this.textBoxColorBlue.TabIndex = 8;
+            this.textBoxColorBlue.TextChanged += new System.EventHandler(this.textBoxColorBlue_TextChanged);
             // 
             // lableError
             // 
@@ -120,9 +130,9 @@
             this.checkBoxChart.AutoSize = true;
             this.checkBoxChart.Location = new System.Drawing.Point(12, 67);
             this.checkBoxChart.Name = "checkBoxChart";
-            this.checkBoxChart.Size = new System.Drawing.Size(103, 17);
+            this.checkBoxChart.Size = new System.Drawing.Size(51, 17);
             this.checkBoxChart.TabIndex = 10;
-            this.checkBoxChart.Text = "Add cell to chart";
+            this.checkBoxChart.Text = "Chart";
             this.checkBoxChart.UseVisualStyleBackColor = true;
             // 
             // CellForm
@@ -162,5 +172,8 @@
         private System.Windows.Forms.TextBox textBoxColorBlue;
         private System.Windows.Forms.Label lableError;
         private System.Windows.Forms.CheckBox checkBoxChart;
+        private System.Windows.Forms.ToolTip toolTipName;
+        private System.Windows.Forms.ToolTip toolTipColor;
+        private System.Windows.Forms.ToolTip toolTipChart;
     }
 }

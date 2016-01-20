@@ -300,6 +300,7 @@ namespace Cafun_XML_Gen
         {
             int index = this.listBoxCells.SelectedIndex;
             this.listBoxMutations.Items.Clear();
+            this.listBoxConditions.Items.Clear();
 
             //check for selected index and add all mutations of selected cell to the listbox mutation
             if (index != -1)

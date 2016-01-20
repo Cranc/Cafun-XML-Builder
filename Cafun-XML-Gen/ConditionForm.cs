@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Cafun_XML_Gen
 {
@@ -15,6 +16,7 @@ namespace Cafun_XML_Gen
     /// </summary>
     public partial class ConditionForm : Form
     {
+        private Regex reg;
         /// <summary>
         /// constructor, initilizes object with default values for my_condition
         /// </summary>
@@ -22,6 +24,12 @@ namespace Cafun_XML_Gen
         {
             InitializeComponent();
             my_condition = null;
+            reg = new Regex(@"[0-8]");
+
+            this.toolTipCellType.SetToolTip(this.labelcelltype, "Type of cell this condition checks for.");
+            this.toolTipMax.SetToolTip(this.labelmax, "Defines the max occurrence of the cell-type.");
+            this.toolTipMin.SetToolTip(this.labelmin, "Defines the min occurrence of the cell-type.");
+            this.toolTipScope.SetToolTip(this.labelscope, "Narrows down directions to look at (not picking one/multiple means looking at all).");
         }
         /// <summary>
         /// contains an object of condition (default null, has to be set by caller)
@@ -102,6 +110,26 @@ namespace Cafun_XML_Gen
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+        /// <summary>
+        /// function checks if text in textbox is valid
+        /// </summary>
+        /// <param name="sender">sender object</param>
+        /// <param name="e">event arguments</param>
+        private void textBoxMin_TextChanged(object sender, EventArgs e)
+        {
+            if (!reg.IsMatch(this.textBoxMin.Text))
+                this.textBoxMin.Text = "";
+        }
+        /// <summary>
+        /// function checks if text in textbox is valid
+        /// </summary>
+        /// <param name="sender">sender object</param>
+        /// <param name="e">event arguments</param>
+        private void textBoxMax_TextChanged(object sender, EventArgs e)
+        {
+            if (!reg.IsMatch(this.textBoxMax.Text))
+                this.textBoxMax.Text = "";
         }
     }
 }

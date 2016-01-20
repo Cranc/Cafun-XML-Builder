@@ -25,6 +25,9 @@ namespace Cafun_XML_Gen
         public CellForm()
         {
             InitializeComponent();
+            toolTipName.SetToolTip(this.labelName, "Name of the cell-type");
+            toolTipColor.SetToolTip(this.labelColor, "Decimal RGB value of the color used by this cell-type");
+            toolTipChart.SetToolTip(this.checkBoxChart, "Makes sure this cell will be added to the Cafun chart");
         }
 
         /// <summary>
@@ -80,42 +83,42 @@ namespace Cafun_XML_Gen
                 //red
                 if (red == null)
                 {
-                    this.lableError.Text += "R is not a valid number (0 - 255) ";
+                    //this.lableError.Text += "R is not a valid number (0 - 255) ";
                     color = false;
                 }
                 else
                 {
                     if (red.Contains("Range"))
                     {
-                        this.lableError.Text += "R not in RGB Range (0 - 255) ";
+                        //this.lableError.Text += "R not in RGB Range (0 - 255) ";
                         color = false;
                     }
                 }
                 //green
                 if (green == null)
                 {
-                    this.lableError.Text += "G is not a valid number (0 - 255) ";
+                    //this.lableError.Text += "G is not a valid number (0 - 255) ";
                     color = false;
                 }
                 else
                 {
                     if (green.Contains("Range"))
                     {
-                        this.lableError.Text += "G not in RGB Range (0 - 255) ";
+                        //this.lableError.Text += "G not in RGB Range (0 - 255) ";
                         color = false;
                     }
                 }
                 //blue
                 if (blue == null)
                 {
-                    this.lableError.Text += "B is not a valid number (0 - 255) ";
+                    //this.lableError.Text += "B is not a valid number (0 - 255) ";
                     color = false;
                 }
                 else
                 {
                     if (blue.Contains("Range"))
                     {
-                        this.lableError.Text += "B not in RGB Range (0 - 255) ";
+                        //this.lableError.Text += "B not in RGB Range (0 - 255) ";
                         color = false;
                     }
                 }
@@ -140,6 +143,46 @@ namespace Cafun_XML_Gen
         {
             //send parent information here
             this.DialogResult = DialogResult.Cancel;
+        }
+        /// <summary>
+        /// function checks if entered digit is a valid for this textbox
+        /// </summary>
+        /// <param name="sender">send object</param>
+        /// <param name="e">event arguments</param>
+        private void textBoxColorRed_TextChanged(object sender, EventArgs e)
+        {
+            String res = match_single_RGB(this.textBoxColorRed.Text);
+            if(res == null || res.Equals("Range"))
+            {
+                this.textBoxColorRed.Text = this.textBoxColorRed.Text.Substring(0, this.textBoxColorRed.Text.Length - 1);
+            }
+        }
+        /// <summary>
+        /// function checks if entered digit is a valid for this textbox
+        /// </summary>
+        /// <param name="sender">send object</param>
+        /// <param name="e">event arguments</param>
+        private void textBoxColorGreen_TextChanged(object sender, EventArgs e)
+        {
+            String res = match_single_RGB(this.textBoxColorGreen.Text);
+            if (res == null || res.Equals("Range"))
+            {
+                this.textBoxColorGreen.Text = this.textBoxColorGreen.Text.Substring(0, this.textBoxColorGreen.Text.Length - 1);
+            }
+        }
+        /// <summary>
+        /// function checks if entered digit is a valid for this textbox
+        /// </summary>
+        /// <param name="sender">send object</param>
+        /// <param name="e">event arguments</param>
+        private void textBoxColorBlue_TextChanged(object sender, EventArgs e)
+        {
+            String res = match_single_RGB(this.textBoxColorBlue.Text);
+            if (res == null || res.Equals("Range"))
+            {
+                this.textBoxColorBlue.Text = this.textBoxColorBlue.Text.Substring(0, this.textBoxColorBlue.Text.Length - 1);
+                this.textBoxColorBlue.Select(0,this.textBoxColorBlue.Text.Length);
+            }
         }
     }
 }

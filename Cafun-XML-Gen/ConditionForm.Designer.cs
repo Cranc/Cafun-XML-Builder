@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelcelltype = new System.Windows.Forms.Label();
             this.labelmin = new System.Windows.Forms.Label();
             this.labelmax = new System.Windows.Forms.Label();
@@ -45,6 +46,10 @@
             this.checkBoxSouthEast = new System.Windows.Forms.CheckBox();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.toolTipCellType = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipMin = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipMax = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipScope = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // labelcelltype
@@ -84,16 +89,20 @@
             // textBoxMin
             // 
             this.textBoxMin.Location = new System.Drawing.Point(93, 38);
+            this.textBoxMin.MaxLength = 1;
             this.textBoxMin.Name = "textBoxMin";
             this.textBoxMin.Size = new System.Drawing.Size(151, 20);
             this.textBoxMin.TabIndex = 4;
+            this.textBoxMin.TextChanged += new System.EventHandler(this.textBoxMin_TextChanged);
             // 
             // textBoxMax
             // 
             this.textBoxMax.Location = new System.Drawing.Point(93, 64);
+            this.textBoxMax.MaxLength = 1;
             this.textBoxMax.Name = "textBoxMax";
             this.textBoxMax.Size = new System.Drawing.Size(151, 20);
             this.textBoxMax.TabIndex = 5;
+            this.textBoxMax.TextChanged += new System.EventHandler(this.textBoxMax_TextChanged);
             // 
             // labelscope
             // 
@@ -255,5 +264,9 @@
         private System.Windows.Forms.CheckBox checkBoxSouthEast;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.ToolTip toolTipCellType;
+        private System.Windows.Forms.ToolTip toolTipMin;
+        private System.Windows.Forms.ToolTip toolTipMax;
+        private System.Windows.Forms.ToolTip toolTipScope;
     }
 }
