@@ -10,8 +10,9 @@ Issues can be directed towards the Issues tab of the Repository.
 #Requirements
 Windows version: .Net Framework 4.5.2
 
-Cross platfom version: Mono 4.2.1.102 (Windows user can also run this with the .Net Framework)
-you can find it here: http://www.mono-project.com/
+Cross platfom version: 
+Mono 4.2.1.102 you can find it here: http://www.mono-project.com/
+(Windows user can also run this with the .Net Framework)
 
 #Download
 Dropbox-link
