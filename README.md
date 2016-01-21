@@ -32,10 +32,10 @@ Dropbox-link
 
 #Planned Updates
 + Change button support (low)
-+ checks for inputs (medium)
-+ Wiki (medium)
 
 #Finished Updates
 + Add Documentation (high)
 + Chart support (high)
 + Cross Platform version (high)
++ Checks for inputs (medium)
++ Wiki (medium)
