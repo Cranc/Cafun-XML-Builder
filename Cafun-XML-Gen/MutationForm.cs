@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Cafun_XML_Gen
 {
@@ -15,6 +9,7 @@ namespace Cafun_XML_Gen
     /// </summary>
     public partial class MutationForm : Form
     {
+        private Regex reg;
         /// <summary>
         /// contains a mutation object given by the parent form.
         /// </summary>
@@ -25,6 +20,12 @@ namespace Cafun_XML_Gen
         public MutationForm()
         {
             InitializeComponent();
+            reg = new Regex(@"^[0][.]?[0-9]*$|^[1]$");//matches everything from 0.0 -> 1
+            this.toolTipName.SetToolTip(this.labelName, "Defines the name the mutation shows up in the list box (optional).");
+            this.toolTipCellType.SetToolTip(this.labelCell, "Defines the cell-type the cell will change to.");
+            this.toolTipProbability.SetToolTip(this.labelProb, "Defines the probability of the mutation happening (optional).");
+            this.toolTipPriotity.SetToolTip(this.labelprio, "Defines the Priority of the mutation" +
+                "(<!ATTLIST mutation priority (top | very-high | high | medium | default | low | very - low | lowest) \"default\" >).");
         }
         /// <summary>
         /// function reacts on add button click, cheks if needed values are given and adds them to the mutation object.
@@ -94,6 +95,19 @@ namespace Cafun_XML_Gen
                 return PRIORITY.very_low;
 
             return PRIORITY.default_;
+        }
+        /// <summary>
+        /// checks if the type of input is allowed
+        /// </summary>
+        /// <param name="sender">sender object</param>
+        /// <param name="e">event arguments</param>
+        private void textBoxProb_TextChanged(object sender, EventArgs e)
+        {
+            if (!reg.IsMatch(this.textBoxProb.Text))
+            {
+                this.textBoxProb.Text = this.textBoxProb.Text.Substring(0, this.textBoxProb.Text.Length - 1);
+                this.textBoxProb.Select(0, this.textBoxProb.Text.Length);
+            }
         }
     }
 }

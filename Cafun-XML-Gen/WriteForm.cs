@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cafun_XML_Gen
@@ -21,6 +14,10 @@ namespace Cafun_XML_Gen
         public WriteForm()
         {
             InitializeComponent();
+            this.toolTipName.SetToolTip(this.labelName, "Defines the name of the file and the name of the simulation.");
+            this.toolTipGuide.SetToolTip(this.labelGuide, "Defines the information displayed in the guide of the simulation.");
+            this.toolTipDesciption.SetToolTip(this.labelDescription, "Defines the description of the simulation");
+            this.toolTipAuthor.SetToolTip(this.labelAuthor, "Defines the name of the author displayed in the simulation");
         }
         /// <summary>
         /// String that contains description in xml format.

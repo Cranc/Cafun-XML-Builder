@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelName = new System.Windows.Forms.Label();
             this.labelAuthor = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -38,6 +39,10 @@
             this.labelDescription = new System.Windows.Forms.Label();
             this.buttonWrite = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.toolTipName = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipAuthor = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipGuide = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipDesciption = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // labelName
@@ -163,5 +168,9 @@
         private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.Button buttonWrite;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.ToolTip toolTipName;
+        private System.Windows.Forms.ToolTip toolTipAuthor;
+        private System.Windows.Forms.ToolTip toolTipGuide;
+        private System.Windows.Forms.ToolTip toolTipDesciption;
     }
 }

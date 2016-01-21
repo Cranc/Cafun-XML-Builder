@@ -48,13 +48,13 @@ namespace Cafun_XML_Gen
                     Mutation myMutation = form.my_mutation;
                     if (myMutation == null)
                     {
-                        this.errorMessages("somehow the mutation object was empty, try again.");
+                        this.errorMessages("Somehow the mutation object was empty, try again.");
                     }else
                         this.list_cells[index].mutations.Add(myMutation);
                 }
             }
             else
-                this.errorMessages("no Cell was selected");
+                this.errorMessages("No cell was selected!");
             // update lists
             this.listBoxCells_SelectedIndexChanged(null, null);
         }
@@ -73,7 +73,7 @@ namespace Cafun_XML_Gen
                 this.list_cells[this.listBoxCells.SelectedIndex].mutations.RemoveAt(index);
             }
             else
-                errorMessages("you need to select a mutation");
+                errorMessages("You need to select a mutation!");
         }
         /// <summary>
         /// function reacts on add cell button click, creates a new cell from and on sucess of that form saves the cell
@@ -93,7 +93,7 @@ namespace Cafun_XML_Gen
                 Cell myCell = form.my_cell;
                 if (myCell == null)
                 {
-                    this.errorMessages("somehow the cell object was empty, try again.");
+                    this.errorMessages("Somehow the cell object was empty, try again.");
                 }
                 else
                 {
@@ -117,7 +117,7 @@ namespace Cafun_XML_Gen
                 this.list_cells.RemoveAt(index);
             }
             else
-                errorMessages("you need to select a cell");
+                errorMessages("You need to select a cell!");
         }
         /// <summary>
         /// function reacts on add condition button click, creates a condition and form and on sucess
@@ -145,11 +145,11 @@ namespace Cafun_XML_Gen
                     if (myCon != null)
                         this.list_cells[indexCell].mutations[indexMut].conditons.Add(myCon);
                     else
-                        this.errorMessages("somehow the condition object was empty, try again.");
+                        this.errorMessages("Somehow the condition object was empty, try again.");
                 }
             }
             else
-                errorMessages("you need to select a cell and mutation.");
+                errorMessages("You need to select a cell and mutation!");
             //update listbox
             this.listBoxMutations_SelectedIndexChanged(null, null);
         }
@@ -171,7 +171,7 @@ namespace Cafun_XML_Gen
                 listBoxMutations_SelectedIndexChanged(null, null);
             }
             else
-                errorMessages("you need to select a condition.");
+                errorMessages("You need to select a condition!");
         }
         /// <summary>
         /// function reacts on write button click, creates the write form and on sucess

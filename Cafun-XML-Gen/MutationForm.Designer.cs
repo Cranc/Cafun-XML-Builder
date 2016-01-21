@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxCell = new System.Windows.Forms.TextBox();
             this.textBoxProb = new System.Windows.Forms.TextBox();
@@ -45,6 +46,10 @@
             this.radioButtonLowest = new System.Windows.Forms.RadioButton();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonCancle = new System.Windows.Forms.Button();
+            this.toolTipName = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipCellType = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipProbability = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipPriotity = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // textBoxName
@@ -67,15 +72,16 @@
             this.textBoxProb.Name = "textBoxProb";
             this.textBoxProb.Size = new System.Drawing.Size(147, 20);
             this.textBoxProb.TabIndex = 2;
+            this.textBoxProb.TextChanged += new System.EventHandler(this.textBoxProb_TextChanged);
             // 
             // labelName
             // 
             this.labelName.AutoSize = true;
             this.labelName.Location = new System.Drawing.Point(12, 15);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(82, 13);
+            this.labelName.Size = new System.Drawing.Size(36, 13);
             this.labelName.TabIndex = 3;
-            this.labelName.Text = "name: (optional)";
+            this.labelName.Text = "name:";
             // 
             // labelCell
             // 
@@ -257,5 +263,9 @@
         private System.Windows.Forms.RadioButton radioButtonLowest;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonCancle;
+        private System.Windows.Forms.ToolTip toolTipName;
+        private System.Windows.Forms.ToolTip toolTipCellType;
+        private System.Windows.Forms.ToolTip toolTipProbability;
+        private System.Windows.Forms.ToolTip toolTipPriotity;
     }
 }
