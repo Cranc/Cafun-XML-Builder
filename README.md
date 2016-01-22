@@ -32,7 +32,7 @@ Dropbox-link
 * [Windows version 1.0.0](https://www.dropbox.com/s/juqoc3t6vh12jqr/Cafun-XML-Gen.exe?dl=0)
 
 #Planned Updates
-+ automated button disable (when not enough selected)
++ automated button disable for buttons with preconditions (medium)
 
 #Finished Updates
 + Add Documentation (high)
