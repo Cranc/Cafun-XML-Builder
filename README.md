@@ -2,9 +2,10 @@
 
 #Description
 The Cafun XmL Builder makes it possible to create Cafun simulations without the need of writing one line XmL.
+It uses simple Windows, Buttons, Textboxes and more to make generating Cafun simulations as easy as possible.
 
 #Support
-Currently the Cafun XmL Builder only supports Windows.
+The Cafun XmL Builder "should" work on Windows, Mac-Os and Linux systems (when the requiremnts are met).
 Issues can be directed towards the Issues tab of the Repository.
 
 you can find some information in the [Wiki](https://github.com/Cranc/Cafun-XML-Builder/wiki)
@@ -32,7 +33,9 @@ Dropbox-link
 * [Windows version 1.0.0](https://www.dropbox.com/s/juqoc3t6vh12jqr/Cafun-XML-Gen.exe?dl=0)
 
 #Planned Updates
-+ automated button disable for buttons with preconditions (medium)
++ Automated button disable for buttons with preconditions (medium)
++ Load cafun xml files (RLY LOW)
++ config (medium)
 
 #Finished Updates
 + Add Documentation (high)
