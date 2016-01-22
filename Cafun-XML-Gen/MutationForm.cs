@@ -13,13 +13,39 @@ namespace Cafun_XML_Gen
         /// <summary>
         /// contains a mutation object given by the parent form.
         /// </summary>
-        public Mutation my_mutation { get; set; }
+        public Mutation my_mutation { get; private set; }
         /// <summary>
         /// default consturctor
         /// </summary>
         public MutationForm()
         {
             InitializeComponent();
+            my_mutation = new Mutation();
+            Init();
+        }
+        /// <summary>
+        /// constructor for already existing mutations.
+        /// </summary>
+        /// <param name="mut">Mutation that is loaded in this form</param>
+        public MutationForm(Mutation mut)
+        {
+            InitializeComponent();
+            this.buttonAdd.Text = "Change";
+            my_mutation = mut;
+            Init();
+            try
+            {
+                this.textBoxName.Text = mut.name;
+                this.textBoxCell.Text = mut.cell_type;
+                this.textBoxProb.Text = mut.probability;
+                this.checkRadioButton(mut.priority);
+            }catch (Exception e)
+            {
+
+            }
+        }
+        private void Init()
+        {
             reg = new Regex(@"^[0][.]?[0-9]*$|^[1]$");//matches everything from 0.0 -> 1
             this.toolTipName.SetToolTip(this.labelName, "Defines the name the mutation shows up in the list box (optional).");
             this.toolTipCellType.SetToolTip(this.labelCell, "Defines the cell-type the cell will change to.");
@@ -95,6 +121,25 @@ namespace Cafun_XML_Gen
                 return PRIORITY.very_low;
 
             return PRIORITY.default_;
+        }
+        /// <summary>
+        /// Takes a priority and checks the right radiobutton.
+        /// </summary>
+        /// <param name="prioity">PRIORITY to check radio buton for.</param>
+        private void checkRadioButton(PRIORITY prioity)
+        {
+            switch (prioity)
+            {
+                case PRIORITY.default_: this.radioButtonDefault.Checked = true;  break;
+                case PRIORITY.high: this.radioButtonHigh.Checked = true; break;
+                case PRIORITY.low: this.radioButtonLow.Checked = true; break;
+                case PRIORITY.lowest: this.radioButtonLowest.Checked = true; break;
+                case PRIORITY.medium: this.radioButtonMedium.Checked = true; break;
+                case PRIORITY.top: this.radioButtontop.Checked = true; break;
+                case PRIORITY.very_high: this.radioButtonVeryHigh.Checked = true; break;
+                case PRIORITY.very_low: this.radioButtonVeryLow.Checked = true; break;
+                default: this.radioButtonDefault.Checked = true; break;
+            }
         }
         /// <summary>
         /// checks if the type of input is allowed

@@ -13,16 +13,50 @@ namespace Cafun_XML_Gen
         /// <summary>
         /// Contains the cell used by this form.
         /// </summary>
-        public Cell my_cell { get; set; }
+        public Cell my_cell { get; private set; }
 
         public CellForm()
         {
             InitializeComponent();
+            InitToolTips();
+            my_cell = new Cell();
+        }
+
+        /// <summary>
+        /// public constructor for filling textboxes with information of cell.
+        /// </summary>
+        /// <param name="cell">Cell with information.</param>
+        public CellForm(Cell cell)
+        {
+            InitializeComponent();
+            InitToolTips();
+            my_cell = cell;
+            try
+            {
+                this.buttonAdd.Text = "Change";
+                this.textBoxName.Text = cell.cell_name;
+                if (cell.chart)
+                    this.checkBoxChart.Checked = true;
+
+                String[] colors = cell.cell_color.Split(' ');
+                this.textBoxColorRed.Text = colors[0];
+                this.textBoxColorGreen.Text = colors[1];
+                this.textBoxColorBlue.Text = colors[2];
+            }catch (Exception e)
+            {
+
+            }
+
+        }
+        /// <summary>
+        /// function that generates the tool tips for the labels
+        /// </summary>
+        private void InitToolTips()
+        {
             toolTipName.SetToolTip(this.labelName, "Name of the cell-type");
             toolTipColor.SetToolTip(this.labelColor, "Decimal RGB value of the color used by this cell-type");
             toolTipChart.SetToolTip(this.checkBoxChart, "Makes sure this cell will be added to the Cafun chart");
         }
-
         /// <summary>
         /// takes a String and checks if the String contains a decimal RGB part. (0-255)
         /// </summary>

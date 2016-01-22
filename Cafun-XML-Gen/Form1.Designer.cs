@@ -161,33 +161,33 @@
             // 
             // buttonChangeCell
             // 
-            this.buttonChangeCell.Enabled = false;
             this.buttonChangeCell.Location = new System.Drawing.Point(121, 208);
             this.buttonChangeCell.Name = "buttonChangeCell";
             this.buttonChangeCell.Size = new System.Drawing.Size(100, 23);
             this.buttonChangeCell.TabIndex = 12;
             this.buttonChangeCell.Text = "Change Cell";
             this.buttonChangeCell.UseVisualStyleBackColor = true;
+            this.buttonChangeCell.Click += new System.EventHandler(this.buttonChangeCell_Click);
             // 
             // buttonChangeMut
             // 
-            this.buttonChangeMut.Enabled = false;
             this.buttonChangeMut.Location = new System.Drawing.Point(462, 208);
             this.buttonChangeMut.Name = "buttonChangeMut";
             this.buttonChangeMut.Size = new System.Drawing.Size(100, 23);
             this.buttonChangeMut.TabIndex = 13;
             this.buttonChangeMut.Text = "Change Mutation";
             this.buttonChangeMut.UseVisualStyleBackColor = true;
+            this.buttonChangeMut.Click += new System.EventHandler(this.buttonChangeMut_Click);
             // 
             // buttonChangeCon
             // 
-            this.buttonChangeCon.Enabled = false;
             this.buttonChangeCon.Location = new System.Drawing.Point(333, 369);
             this.buttonChangeCon.Name = "buttonChangeCon";
             this.buttonChangeCon.Size = new System.Drawing.Size(100, 23);
             this.buttonChangeCon.TabIndex = 14;
             this.buttonChangeCon.Text = "Change Condition";
             this.buttonChangeCon.UseVisualStyleBackColor = true;
+            this.buttonChangeCon.Click += new System.EventHandler(this.buttonChangeCon_Click);
             // 
             // buttonWrite
             // 
