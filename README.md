@@ -18,11 +18,12 @@ Mono 4.2.1.102 you can find it here: http://www.mono-project.com/
 
 #Download
 Dropbox-link
-* [Cross plarform version 1.1.2](https://www.dropbox.com/s/eari7afk0922yea/Cafun-XML-Gen.exe?dl=0)
+* [Cross plarform version 1.2.0](https://www.dropbox.com/s/6dh6g4c5csf3j2v/Cafun-XML-Gen.exe?dl=0)
 
 (tested on Ubuntu, Mint, Windows with Mono, Windows without Mono)
 
 #old versions
+* [Cross plarform version 1.1.2](https://www.dropbox.com/s/eari7afk0922yea/Cafun-XML-Gen.exe?dl=0)
 * [Cross plarform version 1.1.1](https://www.dropbox.com/s/ao09kn2z44fmgbt/Cafun-XML-Gen.exe?dl=0)
 * [Cross platform version 1.1.0](https://www.dropbox.com/s/tdh1sggrxhc4chv/Cafun-XML-Gen.exe?dl=0)
 * [Windows version 1.1.0](https://www.dropbox.com/s/ln9bd8jnug6zm7f/Cafun-XML-Gen.exe?dl=0)(last Windows only)
@@ -31,7 +32,7 @@ Dropbox-link
 * [Windows version 1.0.0](https://www.dropbox.com/s/juqoc3t6vh12jqr/Cafun-XML-Gen.exe?dl=0)
 
 #Planned Updates
-+ Change button support (low)
++ automated button disable (when not enough selected)
 
 #Finished Updates
 + Add Documentation (high)
@@ -39,3 +40,4 @@ Dropbox-link
 + Cross Platform version (high)
 + Checks for inputs (medium)
 + Wiki (medium)
++ Change button support (low)
