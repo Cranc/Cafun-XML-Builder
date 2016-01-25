@@ -61,6 +61,7 @@
     <Compile Include="ConditionForm.Designer.cs">
       <DependentUpon>ConditionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Config.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
