@@ -51,6 +51,8 @@ namespace Cafun_XML_Gen
             {
                 throw new Exception(error);
             }
+            if (File.Exists(this.path))
+                ReadConfig();
         }
         /// <summary>
         /// trys to read the config located at the path and adds keys and values to the Dictionary,

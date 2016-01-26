@@ -15,6 +15,7 @@ namespace Cafun_XML_Gen
         /// hidden List, contains cells mirrors the visible boxlist for cells
         /// </summary>
         private List<Cell> list_cells;
+        private Config config;
         /// <summary>
         /// consturctor
         /// </summary>
@@ -23,6 +24,13 @@ namespace Cafun_XML_Gen
             InitializeComponent();
             // myLists
             list_cells = new List<Cell>();
+            LoadConfig();
+        }
+
+        private void LoadConfig()
+        {
+            String path = Environment.CurrentDirectory;
+            config = new Config(path);
         }
         // button-events
         /// <summary>
