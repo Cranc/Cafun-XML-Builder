@@ -146,7 +146,71 @@ namespace Cafun_XML_Gen
         /// <returns>true on sucess, false otherwise.</returns>
         public bool WriteConfig()
         {
-            return false;
+            try
+            {
+                if (!Directory.Exists(Path.GetFullPath(path)))
+                {
+                    Directory.CreateDirectory(Path.GetFullPath(path));
+                }
+                if (!File.Exists(path))
+                {
+                    File.Create(path).Close();
+                }
+                else
+                {
+                    File.Delete(path);
+                    File.Create(path).Close();
+                }
+                String text = null;
+                foreach (KeyValuePair<String, String> kv in config)
+                {
+                    text += KEY_PREFIX + DELIMITER + kv.Key + DELIMITER + kv.Value + "\n";
+                }
+                File.WriteAllText(path, text);
+                return true;
+            }
+            catch (IOException e)
+            {
+                //An I/O error occurred while opening the file.
+                error = e.ToString();
+                error_count++;
+                return false;
+            }
+            catch (UnauthorizedAccessException e)
+            {
+                /*
+                path specifies a file that is read-only.
+                -or -
+                This operation is not supported on the current platform.
+                - or -
+                path is a directory.
+                - or -
+                The caller does not have the required permission.
+                */
+                error = e.ToString();
+                error_count++;
+                return false;
+            }
+            catch (ArgumentException e)
+            {
+                //path is a zero-length string, contains only white space, or contains one or more invalid characters defined by the GetInvalidPathChars method.
+                error = e.ToString();
+                error_count++;
+                return false;
+            }
+            catch (NotSupportedException e)
+            {
+                error = e.ToString();
+                error_count++;
+                return false;
+            }
+            catch (System.Security.SecurityException e)
+            {
+                //The caller does not have the required permission.
+                error = e.ToString();
+                error_count++;
+                return false;
+            }
         }
         /// <summary>
         /// adds new key, value pair to dicionary.
@@ -175,7 +239,17 @@ namespace Cafun_XML_Gen
         /// <returns>true on sucess, false otherwise.</returns>
         public bool DeleteKey(String key)
         {
-            return false;
+            try
+            {
+                config.Remove(key);
+                return true;
+            }
+            catch (ArgumentNullException e)
+            {
+                error = e.ToString();
+                error_count++;
+                return false;
+            }
         }
         /// <summary>
         /// checks if the given path is valid and then changes path of config accordingly.
