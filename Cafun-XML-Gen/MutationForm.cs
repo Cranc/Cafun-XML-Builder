@@ -41,7 +41,7 @@ namespace Cafun_XML_Gen
                 this.checkRadioButton(mut.priority);
             }catch (Exception e)
             {
-
+                this.DialogResult = DialogResult.Abort;
             }
         }
         private void Init()

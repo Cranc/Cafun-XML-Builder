@@ -78,7 +78,6 @@ namespace Cafun_XML_Gen
                         var list = line.Split(DELIMITER);
                         if (list.Length == 3)
                         {
-                            var n = list[2].Replace(DELIMITER.ToString(), String.Empty).Replace(VALUE_PACKET.ToString(), String.Empty);
                             if (!AddKey(list[1], list[2].Replace(DELIMITER.ToString(), String.Empty).Replace(VALUE_PACKET.ToString(),String.Empty)))
                                 error_count++;
                         }

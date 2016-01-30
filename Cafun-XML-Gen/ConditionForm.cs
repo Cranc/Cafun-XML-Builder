@@ -43,7 +43,7 @@ namespace Cafun_XML_Gen
             }
             catch (Exception e)
             {
-
+                this.DialogResult = DialogResult.Abort;
             }
         }
 
