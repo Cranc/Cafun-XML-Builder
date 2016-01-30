@@ -15,6 +15,7 @@ namespace Cafun_XML_Gen
         /// hidden List, contains cells mirrors the visible boxlist for cells
         /// </summary>
         private List<Cell> list_cells;
+        private Config config;
         /// <summary>
         /// consturctor
         /// </summary>
@@ -23,6 +24,51 @@ namespace Cafun_XML_Gen
             InitializeComponent();
             // myLists
             list_cells = new List<Cell>();
+            LoadConfig();
+        }
+
+        private void LoadConfig()
+        {
+            String path = Environment.CurrentDirectory;
+            try
+            {
+                config = new Config(path);
+                if (!config.ConfigExists())
+                {
+                    path = Path.Combine(Environment.CurrentDirectory, "xml_files");
+                    config.AddKey("XML_PATH", path);
+                    config.AddKey("DEFAULT_FILE_NAME", "xml_file");
+                    config.AddKey("PREATYFY_XML", "1");
+                    if (!config.WriteConfig())
+                        errorMessages(config.error);
+                }
+                else
+                {
+                    bool rewrite = false;
+                    if (!config.config.ContainsKey("XML_PATH"))
+                    {
+                        config.AddKey("XML_PATH", path);
+                        rewrite = true;
+                    }
+                    if (!config.config.ContainsKey("DEFAULT_FILE_NAME"))
+                    {
+                        config.AddKey("DEFAULT_FILE_NAME", "xml_file");
+                        rewrite = true;
+                    }
+                    if (!config.config.ContainsKey("PREATYFY_XML"))
+                    {
+                        config.AddKey("PREATYFY_XML", "1");
+                        rewrite = true;
+                    }
+                    if (rewrite)
+                        if (!config.WriteConfig())
+                            errorMessages(config.error);
+                }
+            }
+            catch (Exception e)
+            {
+                errorMessages(e.ToString());
+            }       
         }
         // button-events
         /// <summary>
@@ -309,34 +355,45 @@ namespace Cafun_XML_Gen
 
                 //add end tag end make the xml pretty
                 xml += "</simulation>";
-                xml = formatXml(xml);
+                if(this.config.config["PREATYFY_XML"].Equals("1"))
+                    xml = formatXml(xml);
 
                 //create a path and create a direcetory (if it doesnt exist yet)
                 string path;
-                path = Path.Combine(Environment.CurrentDirectory, "xml_files");
-                Directory.CreateDirectory(path);
+                path = this.config.config["XML_PATH"];
+                try {
+                    Directory.CreateDirectory(path);
 
-                //if name given use that name as file name if not use default
-                if (!name.Equals(""))
-                    path = Path.Combine(Environment.CurrentDirectory, "xml_files", name + ".xml");
-                else
-                    path = Path.Combine(Environment.CurrentDirectory, "xml_files", "XMLTEST.xml");
-                //write file to path
-                if (!File.Exists(path))
-                {
-                    File.Create(path).Close();
-                    File.WriteAllText(path, xml);
-                }
-                else
-                {
-                    DialogResult dialogResult = MessageBox.Show("There already exist a file with that name, do you want to overwrite it?", "Overwrite?", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
+                    //if name given use that name as file name if not use default
+                    if (!name.Equals(""))
+                        path = Path.Combine(path, name + ".xml");
+                    else
+                        path = Path.Combine(path, this.config.config["DEFAULT_FILE_NAME"] + ".xml");
+                    //write file to path
+                    if (!File.Exists(path))
                     {
-                        //overwrite here
-                        File.Delete(path);
                         File.Create(path).Close();
                         File.WriteAllText(path, xml);
                     }
+                    else
+                    {
+                        DialogResult dialogResult = MessageBox.Show("There already exist a file with that name, do you want to overwrite it?", "Overwrite?", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            //overwrite here
+                            File.Delete(path);
+                            File.Create(path).Close();
+                            File.WriteAllText(path, xml);
+                        }
+                    }
+                }
+                catch (NotSupportedException ex)
+                {
+                    errorMessages("Path in UserSettings.txt is not valid, change XML_PATH or delete file for reset");
+                }
+                catch (Exception ex)
+                {
+                    errorMessages(ex.ToString());
                 }
             }
         }
