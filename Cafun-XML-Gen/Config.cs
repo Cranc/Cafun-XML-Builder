@@ -7,7 +7,7 @@ namespace Cafun_XML_Gen
     class Config
     {
         private static String CONFIG_FILE_NAME = "UserSettings.txt";
-        private static String KEY_PREFIX = "SET ";
+        private static String KEY_PREFIX = "SET";
         private static String VALUE_PACKET = "\"";
         private static String FILE_DOES_NOT_EXIST = "File does not exist, check path.";
         private static char DELIMITER = ' ';
@@ -78,7 +78,8 @@ namespace Cafun_XML_Gen
                         var list = line.Split(DELIMITER);
                         if (list.Length == 3)
                         {
-                            if (!AddKey(list[1], list[2].Replace(DELIMITER.ToString(), String.Empty)))
+                            var n = list[2].Replace(DELIMITER.ToString(), String.Empty).Replace(VALUE_PACKET.ToString(), String.Empty);
+                            if (!AddKey(list[1], list[2].Replace(DELIMITER.ToString(), String.Empty).Replace(VALUE_PACKET.ToString(),String.Empty)))
                                 error_count++;
                         }
                     }
@@ -150,9 +151,9 @@ namespace Cafun_XML_Gen
         {
             try
             {
-                if (!Directory.Exists(Path.GetFullPath(path)))
+                if (!Directory.Exists(Path.GetDirectoryName(path)))
                 {
-                    Directory.CreateDirectory(Path.GetFullPath(path));
+                    Directory.CreateDirectory(Path.GetDirectoryName(path));
                 }
                 if (!File.Exists(path))
                 {
@@ -166,7 +167,7 @@ namespace Cafun_XML_Gen
                 String text = null;
                 foreach (KeyValuePair<String, String> kv in config)
                 {
-                    text += KEY_PREFIX + DELIMITER + kv.Key + DELIMITER + kv.Value + "\n";
+                    text += KEY_PREFIX + DELIMITER + kv.Key + DELIMITER + VALUE_PACKET + kv.Value + VALUE_PACKET + "\n";
                 }
                 File.WriteAllText(path, text);
                 return true;
@@ -271,6 +272,16 @@ namespace Cafun_XML_Gen
                 error_count++;
                 return false;
             }      
+        }
+        /// <summary>
+        /// checks if the config already exists on the designated location
+        /// </summary>
+        /// <returns>true when config already exists, false otherwise</returns>
+        public bool ConfigExists()
+        {
+            if (File.Exists(path))
+                return true;
+            return false;
         }
     }
 }
